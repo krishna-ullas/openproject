@@ -1,26 +1,26 @@
 app:
     name: OpenProject
     code: OPENPROJECT 
-    notify: appz@ecloudcontrol.com
+    notify: kullas@ecloudcontrol.com
 
 build:
-    version: 11.3
+    version: 12.3
     env: DEV
     build_file: none
     output_files: output/*.zip
-    image_template: openproject-11.3
+    image_template: openproject-12.3
 
 deploy:
-    context: alpha/DEV
+    context: krishna-ullas/DEV
     type: statefulset
-    replicas: 2
+    replicas: 1
     port:
     - 80
 volumes:
 - claim: openproject-assets
   mount: /appz/data/openproject  
   name: assets
-  size: 5Gi
+  size: 2Gi
 
 properties:
     ATTACHMENTS_STORAGE_PATH: /appz/data/openproject
